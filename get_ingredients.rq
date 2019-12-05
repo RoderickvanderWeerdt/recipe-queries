@@ -1,0 +1,16 @@
+#+ summary: Returns the ingredients, their quantities (and their specific units of measurement)
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - ingredients
+#+ defaults:
+#+   - gerechtnaam: Ham-Kaas Tosti
+
+PREFIX vocab: <https://iisg.amsterdam/vocab/>
+
+SELECT ?ingredient ?hoeveelheid ?eenheid WHERE {
+  ?gerecht vocab:gerechtnaam ?_gerechtnaam .
+  ?gerecht vocab:ingredient ?ingredient .
+  ?gerecht vocab:hoeveelheid ?hoeveelheid .
+  ?gerecht vocab:eenheid ?eenheid .
+}
+LIMIT 30
