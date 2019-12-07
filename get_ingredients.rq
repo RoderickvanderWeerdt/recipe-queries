@@ -6,11 +6,13 @@
 #+   - gerechtnaam: Ham-Kaas Tosti
 
 PREFIX vocab: <https://iisg.amsterdam/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recept/>
 
 SELECT ?ingredient ?hoeveelheid ?eenheid WHERE {
   ?gerecht vocab:gerechtnaam ?_gerechtnaam .
-  ?gerecht vocab:ingredient ?ingredient .
-  ?gerecht vocab:hoeveelheid ?hoeveelheid .
-  ?gerecht vocab:eenheid ?eenheid .
+  ?ingredient_node vocab:gerecht ?gerecht .
+  ?ingredient_node vocab:ingredient ?ingredient .
+  ?ingredient_node vocab:hoeveelheid ?hoeveelheid .
+  ?ingredient_node vocab:eenheid ?eenheid .
 }
 LIMIT 30
