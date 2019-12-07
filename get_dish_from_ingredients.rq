@@ -10,5 +10,5 @@ PREFIX recept: <http://nimbostratus.nl/recept/>
 SELECT ?gerechtnaam WHERE {
   ?gerecht vocab:gerechtnaam ?gerechtnaam .
   ?ingredient_node vocab:gerecht ?gerecht .
-  ?ingredient_node vocab:ingredient "Kaas" .
+  ?ingredient_node vocab:ingredient ?_ingredient .
 } LIMIT 10
