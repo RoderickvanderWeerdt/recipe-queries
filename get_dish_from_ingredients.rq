@@ -1,4 +1,3 @@
-#+ summary: Returns the dishes using a specific ingredient
 #+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
 #+ tags:
 #+   - ingredients
@@ -6,8 +5,10 @@
 #+   - ingredient: Kaas
 
 PREFIX vocab: <https://iisg.amsterdam/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recept/>
 
 SELECT ?gerechtnaam WHERE {
   ?gerecht vocab:gerechtnaam ?gerechtnaam .
-  ?gerecht vocab:ingredient ?_ingredient .
+  ?ingredient_node vocab:gerecht ?gerecht .
+  ?ingredient_node vocab:ingredient "Kaas" .
 } LIMIT 10
