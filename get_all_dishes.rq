@@ -1,0 +1,11 @@
+#+ summary: Returns all the dishes
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - dishes
+
+PREFIX vocab: <https://iisg.amsterdam/vocab/>
+
+SELECT DISTINCT ?gerechtnaam WHERE {
+  ?gerecht vocab:gerechtnaam ?gerechtnaam .
+}
+LIMIT 30
