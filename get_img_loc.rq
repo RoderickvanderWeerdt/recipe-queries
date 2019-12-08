@@ -1,0 +1,18 @@
+#+ summary: Return the image for a given dish
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - dishes
+#+ defaults:
+#+   - gerechtnaam: ham-kaas tosti
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vocab: <https://nimbostratus.nl/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recept/>
+PREFIX ob: <http://nimbostratus.nl/>
+
+SELECT ?img_location WHERE {
+  ?gerecht vocab:gerechtnaam ?_gerechtnaam .
+  ?gerecht vocab:hasImg ?img_location .
+}
+LIMIT 5
