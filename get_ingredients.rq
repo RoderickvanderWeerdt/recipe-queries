@@ -5,8 +5,11 @@
 #+ defaults:
 #+   - gerechtnaam: Ham-Kaas Tosti
 
-PREFIX vocab: <https://iisg.amsterdam/vocab/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vocab: <https://nimbostratus.nl/vocab/>
 PREFIX recept: <http://nimbostratus.nl/recept/>
+PREFIX ob: <http://nimbostratus.nl/>
 
 SELECT ?ingredient ?hoeveelheid ?eenheid WHERE {
   ?gerecht vocab:gerechtnaam ?_gerechtnaam .
