@@ -10,6 +10,6 @@ PREFIX recept: <http://nimbostratus.nl/recept/>
 PREFIX ob: <http://nimbostratus.nl/>
 
 SELECT DISTINCT ?gerechtnaam WHERE {
-  ?gerecht vocab:gerechtnaam ?gerechtnaam .
+  ?gerecht vocab:dishName ?gerechtnaam .
 }
 LIMIT 30
