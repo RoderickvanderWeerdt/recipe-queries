@@ -12,7 +12,7 @@ PREFIX recept: <http://nimbostratus.nl/recept/>
 PREFIX ob: <http://nimbostratus.nl/>
 
 SELECT ?img_location WHERE {
-  ?gerecht vocab:gerechtnaam ?_gerechtnaam .
+  ?gerecht vocab:dishName ?_gerechtnaam .
   ?gerecht vocab:hasImg ?img_location .
 }
 LIMIT 5
