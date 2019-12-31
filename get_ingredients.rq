@@ -3,19 +3,19 @@
 #+ tags:
 #+   - ingredients
 #+ defaults:
-#+   - gerechtnaam: Ham-Kaas Tosti
+#+   - dishName: Ham-Kaas Tosti
 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX vocab: <https://nimbostratus.nl/vocab/>
-PREFIX recept: <http://nimbostratus.nl/recept/>
+PREFIX vocab: <http://nimbostratus.nl/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recipe/>
 PREFIX ob: <http://nimbostratus.nl/>
 
-SELECT ?ingredient ?hoeveelheid ?eenheid WHERE {
-  ?gerecht vocab:gerechtnaam ?_gerechtnaam .
-  ?ingredient_node vocab:gerecht ?gerecht .
+SELECT ?ingredient ?quantity ?unit WHERE {
+  ?dish vocab:dishName ?_dishName .
+  ?ingredient_node vocab:usedIn ?dish .
   ?ingredient_node vocab:ingredient ?ingredient .
-  ?ingredient_node vocab:hoeveelheid ?hoeveelheid .
-  ?ingredient_node vocab:eenheid ?eenheid .
+  OPTIONAL { ?ingredient_node vocab:quantity ?quantity }
+  OPTIONAL { ?ingredient_node vocab:unit ?unit }
+  
 }
-LIMIT 30
