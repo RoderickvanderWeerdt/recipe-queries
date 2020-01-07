@@ -1,0 +1,24 @@
+#+ summary: return the recipe information for a given dish.
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - recipe
+#+ defaults:
+#+   - dishName: Ham-Kaas Tosti
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vocab: <http://nimbostratus.nl/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recipe/>
+PREFIX ob: <http://nimbostratus.nl/>
+
+SELECT ?ingredient ?quantity ?unit ?duration ?img_location ?introduction ?instructions WHERE {
+  ?dish vocab:dishName ?_dishName .
+  ?ingredient_node vocab:usedIn ?dish .
+  ?ingredient_node vocab:ingredient ?ingredient .
+  OPTIONAL { ?ingredient_node vocab:quantity ?quantity }
+  OPTIONAL { ?ingredient_node vocab:unit ?unit }
+  OPTIONAL { ?dish vocab:duration ?duration }
+  OPTIONAL { ?dish vocab:hasImg ?img_location }
+  OPTIONAL { ?dish vocab:introduction ?introduction }
+  OPTIONAL { ?dish vocab:instructions ?instructions }
+}
