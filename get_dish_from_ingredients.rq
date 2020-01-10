@@ -10,8 +10,9 @@ PREFIX vocab: <http://nimbostratus.nl/vocab/>
 PREFIX recept: <http://nimbostratus.nl/recept/>
 PREFIX ob: <http://nimbostratus.nl/>
 
-SELECT ?gerechtnaam WHERE {
-  ?gerecht vocab:dishName ?gerechtnaam .
-  ?ingredient_node vocab:usedIn ?gerecht .
+SELECT ?dishName ?img_location WHERE {
+  ?dish vocab:dishName ?dishName .
+  ?ingredient_node vocab:usedIn ?dish .
   ?ingredient_node vocab:ingredient ?_ingredient .
+  OPTIONAL { ?dish vocab:hasImg ?img_location }
 } LIMIT 10
