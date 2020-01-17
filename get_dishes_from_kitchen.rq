@@ -14,7 +14,7 @@ PREFIX ob: <http://nimbostratus.nl/>
 SELECT ?dishName WHERE {
   ?dish vocab:dishName ?dishName .
   { ?dish vocab:kitchen ?sub .
-    ?sub rdfs:subClassOf ?_kitchen . }
+    ?sub rdfs:subClassOf ?_kitchen_iri . }
   UNION
-  { ?dish vocab:kitchen ?_kitchen . }
+  { ?dish vocab:kitchen ?_kitchen_iri . }
 }
