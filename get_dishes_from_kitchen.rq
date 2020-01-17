@@ -11,8 +11,9 @@ PREFIX vocab: <http://nimbostratus.nl/vocab/>
 PREFIX recept: <http://nimbostratus.nl/recipe/>
 PREFIX ob: <http://nimbostratus.nl/>
 
-SELECT ?dishName WHERE {
+SELECT DISTINCT ?dishName ?img_location WHERE {
   ?dish vocab:dishName ?dishName .
+  ?dish vocab:dishName ?img_location .
   { ?dish vocab:kitchen ?sub .
     ?sub rdfs:subClassOf ?_kitchen_iri . }
   UNION
