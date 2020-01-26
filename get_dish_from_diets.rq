@@ -1,0 +1,18 @@
+#+ summary: Returns all the dishes belonging to a specific diet (vegan or vegetarian).
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - dishes
+#+ defaults:
+#+   - diet: http://nimbostratus.nl/vegetarisch
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vocab: <http://nimbostratus.nl/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recipe/>
+PREFIX ob: <http://nimbostratus.nl/>
+
+SELECT DISTINCT ?dishName ?img_location WHERE {
+  ?dish vocab:dishName ?dishName .
+  ?dish vocab:hasImg ?img_location .
+  ?dish vocab:diet ?_diet_iri .
+}
