@@ -1,0 +1,14 @@
+#+ summary: get all used diets (vegan or vegetarian) from the recipes.
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - dishes
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vocab: <http://nimbostratus.nl/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recipe/>
+PREFIX ob: <http://nimbostratus.nl/>
+
+SELECT DISTINCT ?diet WHERE {
+  { ?dish vocab:diet ?diet }
+}
