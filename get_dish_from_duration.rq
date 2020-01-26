@@ -1,0 +1,21 @@
+#+ summary: Returns all the dishes between the given duration mininum and maximum.
+#+ endpoint: https://api.krr.triply.cc/datasets/roderick/recepten/services/recepten/sparql
+#+ tags:
+#+   - dishes
+#+ defaults:
+#+   - minDuration: 0
+#+   - maxDuration: 30
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vocab: <http://nimbostratus.nl/vocab/>
+PREFIX recept: <http://nimbostratus.nl/recipe/>
+PREFIX ob: <http://nimbostratus.nl/>
+
+SELECT DISTINCT ?dishName ?img_location WHERE {
+  ?dish vocab:dishName ?dishName .
+  ?dish vocab:hasImg ?img_location .
+  ?dish vocab:duration ?dur .
+  FILTER (?dur <= ?_maxDuration_integer)
+  FILTER (?dur >= ?_minDuration_integer)
+}
