@@ -16,6 +16,6 @@ SELECT DISTINCT ?dishName ?img_location WHERE {
   ?dish vocab:dishName ?dishName .
   ?dish vocab:hasImg ?img_location .
   ?dish vocab:duration ?dur .
-  FILTER (?dur <= ?_maxDuration_integer) .
-  FILTER (?dur >= ?_minDuration_integer) .
+  FILTER (?dur <= ?_maxDuration_int) .
+  FILTER (?dur >= ?_minDuration_int) .
 }
